@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import { getDatabase } from 'firebase/database';
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -13,8 +12,6 @@ const firebaseConfig = {
 	appId: process.env.NEXT_PUBLIC_APPID,
 	measurementId: process.env.NEXT_PUBLIC_MEASUREMENTID,
 };
-
-getAnalytics(app);
 
 const app = initializeApp(firebaseConfig);
 
