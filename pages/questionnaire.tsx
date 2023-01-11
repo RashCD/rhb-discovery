@@ -1,15 +1,32 @@
-import { Box } from '@mui/material';
-import { ref } from 'firebase/database';
 import React from 'react';
-import { useObject } from 'react-firebase-hooks/database';
+import { Box } from '@mui/material';
 import Question from '../components/Question';
 import Stepper from '../components/Stepper';
+import { useQueryParam, NumberParam } from 'use-query-params';
+import useEffectOnce from '../hooks/useEffectOnce';
+import { useRouter } from 'next/router';
 import { db } from '../firebase';
+import { ref } from 'firebase/database';
+import { useListVals } from 'react-firebase-hooks/database';
+
+export type QuestionTypes = {
+	q: string;
+	title: string;
+	possibleAnswer: string[];
+};
 
 const Questionnaire = () => {
-	const [snapshot, loading, error] = useObject(ref(db, 'questionnaire'));
+	const { isReady } = useRouter();
+	const [step, setStep] = useQueryParam('step', NumberParam);
+	const [snapshot, loading] = useListVals<QuestionTypes>(ref(db, 'questionnaire'));
 
-	console.log(snapshot?.val());
+	useEffectOnce(() => {
+		if (!step && isReady) {
+			setStep(0);
+		}
+	});
+
+	if (loading) return '...loading';
 
 	return (
 		<Box
@@ -22,16 +39,7 @@ const Questionnaire = () => {
 				alignItems: 'center',
 			}}
 		>
-			<Stepper />
-			<Question
-				question="What is your gender?"
-				name="question 1"
-				multipleQ={[
-					{ label: 'Female', id: '123' },
-					{ label: 'Male', id: '345' },
-					{ label: 'Binary', id: '567' },
-				]}
-			/>
+			<Question snapshot={snapshot as QuestionTypes[]} />
 		</Box>
 	);
 };
