@@ -7,16 +7,18 @@ import StepLabel from '@mui/material/StepLabel';
 const Stepper = ({
 	totalSteps = 3,
 	currentSteps,
+	label,
 }: {
 	totalSteps?: number;
 	currentSteps: number;
+	label: string[];
 }) => {
 	return (
 		<Box sx={{ width: '100%' }}>
 			<StepperComponent activeStep={currentSteps} alternativeLabel>
-				{[...Array.from(Array(totalSteps).keys())].map((label) => (
+				{label.map((label) => (
 					<Step key={label}>
-						<StepLabel></StepLabel>
+						<StepLabel>{label}</StepLabel>
 					</Step>
 				))}
 			</StepperComponent>

@@ -1,14 +1,34 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, PaletteOptions, ThemeProvider } from '@mui/material';
 import { Inter } from '@next/font/google';
 import Head from 'next/head';
 import { NextAdapter } from 'next-query-params';
 import { QueryParamProvider } from 'use-query-params';
 
+const defaultTheme = createTheme();
+
+declare module '@mui/material/styles' {
+	interface PaletteOptions {
+		tertiary: {
+			main: string;
+			light: string;
+		};
+	}
+}
+
 const theme = createTheme({
+	palette: {
+		tertiary: defaultTheme.palette.augmentColor({
+			color: { main: '#2053a4', light: '#359bd8' },
+			name: 'tertiary',
+		}),
+	},
 	typography: {
 		fontFamily: 'inherit',
+		button: {
+			textTransform: 'none',
+		},
 	},
 });
 
