@@ -1,6 +1,5 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { createTheme, PaletteOptions, ThemeProvider } from '@mui/material';
+import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material';
 import { Inter } from '@next/font/google';
 import Head from 'next/head';
 import { NextAdapter } from 'next-query-params';
@@ -17,8 +16,9 @@ declare module '@mui/material/styles' {
 	}
 }
 
-const theme = createTheme({
+let theme = createTheme({
 	palette: {
+		background: { default: '#f9f9f9', paper: '#fff' },
 		tertiary: defaultTheme.palette.augmentColor({
 			color: { main: '#2053a4', light: '#359bd8' },
 			name: 'tertiary',
@@ -32,11 +32,14 @@ const theme = createTheme({
 	},
 });
 
+theme = responsiveFontSizes(theme);
+
 const inter = Inter({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<ThemeProvider theme={theme}>
+			<CssBaseline />
 			<QueryParamProvider adapter={NextAdapter}>
 				<Head>
 					<title>RHB Connect</title>
