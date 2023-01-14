@@ -7,6 +7,8 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import CardPreview from '../components/CardPreview';
 import { useRouter } from 'next/router';
+import { productHelper } from '../utils/productHelper';
+import Image from 'next/image';
 
 const ResultOutput = () => {
 	const router = useRouter();
@@ -17,21 +19,27 @@ const ResultOutput = () => {
 
 	return (
 		<>
-			<Container sx={{ display: 'flex', mt: 5, mb: 10 }}>
+			<Container sx={{ display: 'flex', mb: 10 }}>
 				<Box
 					sx={{
 						display: { xs: 'none', md: 'flex' },
 						flex: 0.2,
 						justifyContent: 'center',
+						position: 'relative',
 					}}
 				>
-					<Avatar
-						alt="Remy Sharp"
-						src="/static/images/avatar/1.jpg"
-						sx={{ width: 100, height: 100 }}
+					<Image
+						alt="cartoon"
+						src="/cartoon.png"
+						width={150}
+						height={200}
+						priority
+						style={{
+							objectFit: 'contain',
+						}}
 					/>
 				</Box>
-				<Box sx={{ flex: 1 }}>
+				<Box sx={{ flex: 1, mt: 6 }}>
 					<Typography variant="subtitle1">Your Personal Finance type is:</Typography>
 					<Typography variant="h3" color="tertiary.main" sx={{ my: 3, fontWeight: 600 }}>
 						Competent
@@ -76,10 +84,14 @@ const ResultOutput = () => {
 						Product that fit for you
 					</Typography>
 					<Grid container my={3}>
-						<CardPreview />
-						<CardPreview />
-						<CardPreview />
-						<CardPreview />
+						{productHelper.map((product) => (
+							<CardPreview
+								key={product.title}
+								title={product.title}
+								description={product.description}
+								image={product.image}
+							/>
+						))}
 					</Grid>
 				</Box>
 			</Container>
