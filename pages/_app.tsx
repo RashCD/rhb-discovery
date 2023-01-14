@@ -67,6 +67,8 @@ export default function App({ Component, pageProps }: AppProps) {
 						content="RHB Discovery make it easy for you to contact us for information regarding financial advices or services"
 					/>
 					<meta property="og:image" content="/landing_og.png" />
+					<meta property="og:url" content="https://rhb-discovery.vercel.app" />
+					<meta property="og:type" content="website" />
 				</Head>
 				<main className={inter.className}>
 					<Component {...pageProps} />
