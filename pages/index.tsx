@@ -24,10 +24,13 @@ export default function Home() {
 				>
 					<Box sx={{ mb: 3 }}>
 						<Image
-							alt="rhb connect logo"
-							src={'/connect.svg'}
+							alt="rhb discovery logo"
+							src={'/discovery.png'}
 							width={200}
 							height={40}
+							style={{
+								objectFit: 'contain',
+							}}
 						/>
 					</Box>
 					<Typography variant="h2" sx={{ fontWeight: '500' }}>
