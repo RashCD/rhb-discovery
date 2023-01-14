@@ -54,13 +54,19 @@ export default function App({ Component, pageProps }: AppProps) {
 			<CssBaseline />
 			<QueryParamProvider adapter={NextAdapter}>
 				<Head>
-					<title>RHB Connect</title>
+					<title>RHB Discovery</title>
 					<meta
 						name="description"
-						content="RHB connect make it easy for you to contact us for information regarding financial advices or services"
+						content="RHB Discovery make it easy for you to contact us for information regarding financial advices or services"
 					/>
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<link rel="icon" href="/favicon.ico" />
+					<meta property="og:title" content="RHB Discovery" />
+					<meta
+						property="og:description"
+						content="RHB Discovery make it easy for you to contact us for information regarding financial advices or services"
+					/>
+					<meta property="og:image" content="/landing_page.png" />
 				</Head>
 				<main className={inter.className}>
 					<Component {...pageProps} />
