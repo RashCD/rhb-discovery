@@ -66,7 +66,10 @@ export default function App({ Component, pageProps }: AppProps) {
 						property="og:description"
 						content="RHB Discovery make it easy for you to contact us for information regarding financial advices or services"
 					/>
-					<meta property="og:image" content="/landing_og.png" />
+					<meta
+						property="og:image"
+						content="https://rhb-discovery.vercel.app/landing_og.png"
+					/>
 					<meta property="og:url" content="https://rhb-discovery.vercel.app" />
 					<meta property="og:type" content="website" />
 				</Head>
