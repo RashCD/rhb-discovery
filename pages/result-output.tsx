@@ -48,9 +48,15 @@ const ResultOutput = () => {
 					height: '100vh',
 					justifyContent: 'center',
 					alignItems: 'center',
+					bgcolor: '#F1F2F3',
 				}}
 			>
-				<CircularProgress />
+				<Image
+					alt="loading indicator"
+					src="/loading_indicator.gif"
+					width={100}
+					height={100}
+				/>
 			</Box>
 		);
 	}
