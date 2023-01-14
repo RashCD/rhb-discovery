@@ -3,18 +3,20 @@ import SessionCard from '../components/SessionCard';
 import TransitionModal from '../components/TransitionModal';
 import { sessionHelper } from '../utils/sessionHelper';
 import { useState } from 'react';
-import dayjs, { Dayjs } from 'dayjs';
 import BookingAppointmentContent from '../components/BookingAppointmentContent';
+import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 
 const BookSession = () => {
-	const [value, setValue] = useState<Dayjs | null>(dayjs());
 	const [step, setStep] = useState(0);
 	const [open, setOpen] = useState(false);
 	const [account, setAccount] = useState({ name: '', image: '' });
 
+	const [instructor, setInstructor] = useQueryParam('instructor', withDefault(StringParam, ''));
+
 	const handleOpen = ({ name, image }: { name?: string; image?: string }) => {
 		if (name && image) {
 			setAccount({ name, image });
+			setInstructor(name);
 		}
 
 		setOpen(true);
@@ -44,8 +46,6 @@ const BookSession = () => {
 						name={account.name}
 						image={account.image}
 						step={step}
-						value={value}
-						setValue={setValue}
 						setStep={setStep}
 					/>
 				}
