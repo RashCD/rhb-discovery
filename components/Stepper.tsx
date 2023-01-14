@@ -14,7 +14,7 @@ const Stepper = ({
 	label: string[];
 }) => {
 	return (
-		<Box sx={{ width: '100%' }}>
+		<Box sx={{ display: { xs: 'none', sm: 'block' }, width: '100%' }}>
 			<StepperComponent activeStep={currentSteps} alternativeLabel>
 				{label.map((label) => (
 					<Step key={label}>
