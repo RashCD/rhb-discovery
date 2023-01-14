@@ -129,6 +129,7 @@ const ResultOutput = () => {
 								title={product.title}
 								description={product.description}
 								image={product.image}
+								link={product?.link}
 							/>
 						))}
 					</Grid>
