@@ -30,6 +30,10 @@ const ResultOutput = () => {
 		router.push('/book-session');
 	};
 
+	const handleVisitBranch = () => {
+		router.push('https://www.rhbgroup.com/qms/index.html');
+	};
+
 	if (loading) {
 		return (
 			<Box
@@ -154,6 +158,7 @@ const ResultOutput = () => {
 				<Button
 					variant="outlined"
 					sx={{ color: 'tertiary.main', borderColor: 'tertiary.main' }}
+					onClick={handleVisitBranch}
 				>
 					Visit our Branch
 				</Button>
