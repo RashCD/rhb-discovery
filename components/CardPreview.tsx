@@ -30,6 +30,7 @@ const CardPreview = ({
 						overflow: 'hidden',
 						m: 3,
 						aspectRatio: '1/1.1',
+						minHeight: 370,
 					}}
 				>
 					<Stack width={'100%'} height={'100%'}>
