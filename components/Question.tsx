@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import {
 	Box,
 	Button,
@@ -10,19 +10,16 @@ import {
 	Typography,
 } from '@mui/material';
 import Stepper from './Stepper';
-import { QuestionTypes } from '../pages/questionnaire';
 import {
 	useQueryParams,
 	NumberParam,
-	StringParam,
 	useQueryParam,
 	withDefault,
 	ObjectParam,
-	ArrayParam,
 } from 'use-query-params';
 import { isNil } from 'lodash';
 import { useRouter } from 'next/router';
-import { listQuestions, questionTitle } from '../utils/questionHelper';
+import { listQuestions } from '../utils/questionHelper';
 
 const Question = () => {
 	const questionTitle = Object.keys(listQuestions);
@@ -39,15 +36,11 @@ const Question = () => {
 		page6: withDefault(ObjectParam, {}),
 	});
 
-	const handleRadioChange = (
-		event: React.ChangeEvent<HTMLInputElement>,
-		index: number,
-		possibleAnswer: string[]
-	) => {
+	const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
 		setSelectedRadio({
-			[`page${step ?? 0}`]: {
+			[`page${step}`]: {
 				// @ts-ignore
-				...selectedRadio[`page${step ?? 0}`],
+				...selectedRadio[`page${step}` as keyof typeof step],
 				[index]: event.target.value,
 			},
 		});
@@ -55,7 +48,7 @@ const Question = () => {
 
 	const handleNext = () => {
 		if (!isNil(step) && step + 1 === questionTitle.length) {
-			return router.push('/dashboard');
+			return router.push('/result-output');
 		}
 
 		return setStep((step ?? 0) + 1);
@@ -82,8 +75,7 @@ const Question = () => {
 					justifyContent: 'space-between',
 					width: '100%',
 					py: 6,
-					px: [1, 10],
-					ml: 1,
+					px: [1, 2, 7, 10],
 					minHeight: 300,
 				}}
 			>
@@ -95,21 +87,21 @@ const Question = () => {
 						<FormControl sx={{ pl: [0, 2], my: 5 }}>
 							<RadioGroup
 								name={`${questionTitle[step ?? 0]}-${index}`}
-								// @ts-ignore
-								value={selectedRadio[`page${step ?? 0}`][index] || ''}
-								onChange={(event) =>
-									handleRadioChange(event, index, questions.possibleAnswer)
+								value={
+									selectedRadio[`page${step ?? 0}` as keyof typeof step][index] ||
+									''
 								}
+								onChange={(event) => handleRadioChange(event, index)}
 								sx={{ display: 'flex' }}
 							>
-								<Grid container spacing={2} item xs={12}>
+								<Grid container spacing={2}>
 									{questions.possibleAnswer.map((answer) => (
-										<Grid key={answer} item xs={5}>
+										<Grid key={answer} item md={5}>
 											<Button
 												variant={
-													// @ts-ignore
-													selectedRadio[`page${step ?? 0}`][index] ===
-													answer.toLowerCase()
+													selectedRadio[
+														`page${step ?? 0}` as keyof typeof step
+													][index] === answer.toLowerCase()
 														? 'contained'
 														: 'outlined'
 												}
@@ -117,9 +109,9 @@ const Question = () => {
 													borderRadius: 3,
 													borderColor: '#bfbfbf',
 													color:
-														// @ts-ignore
-														selectedRadio[`page${step ?? 0}`][index] ===
-														answer.toLowerCase()
+														selectedRadio[
+															`page${step ?? 0}` as keyof typeof step
+														][index] === answer.toLowerCase()
 															? ''
 															: '#707070',
 												}}
@@ -137,8 +129,9 @@ const Question = () => {
 													}
 													label={answer}
 													sx={{
+														mr: 0,
 														borderWidth: 1,
-														minWidth: 340,
+														minWidth: [100, 150, 200, 300, 340],
 														fontSize: 14,
 													}}
 												/>
