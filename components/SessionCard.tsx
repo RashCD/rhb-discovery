@@ -1,8 +1,9 @@
 import { Grid, Paper, Stack, Box, Typography, Chip, Button, Icon } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import { green, teal } from '@mui/material/colors';
+import { blueGrey, brown, green } from '@mui/material/colors';
 import { sessionHelper } from '../utils/sessionHelper';
+import { FieldType } from '../utils/sessionHelper';
 import Image from 'next/image';
 
 const SessionCardType = sessionHelper[0];
@@ -68,21 +69,31 @@ const SessionCard = ({ name, fields, image, language, location }: typeof Session
 							/>
 							<Typography variant="subtitle1">{language.join(', ')}</Typography>
 						</Stack>
-						<Typography variant="subtitle2" sx={{ fontSize: 12, fontWeight: 'normal' }}>
+						<Typography
+							variant="subtitle2"
+							sx={{ mt: 1, fontSize: 12, fontWeight: 'normal' }}
+						>
 							Fields
 						</Typography>
 						<Stack direction="row" spacing={2}>
-							<Chip
-								variant="outlined"
-								label="Saving"
-								sx={{ borderColor: 'primary.main' }}
-							/>
-							<Chip
-								variant="outlined"
-								label="Insurance"
-								sx={{ borderColor: green[500] }}
-							/>
-							<Chip variant="outlined" label="Loan" sx={{ borderColor: teal[700] }} />
+							{fields.map((fieldName) => (
+								<Chip
+									key={`${name}-${fieldName}`}
+									variant="outlined"
+									label={fieldName}
+									sx={{
+										borderWidth: 2,
+										borderColor:
+											fieldName === FieldType.Saving
+												? 'primary.main'
+												: fieldName === FieldType.Insurance
+												? green[500]
+												: fieldName === FieldType.Loan
+												? blueGrey[500]
+												: brown[500],
+									}}
+								/>
+							))}
 						</Stack>
 						<Button variant="contained" color="tertiary" sx={{ mx: 3, my: 2 }}>
 							Book Appointment
