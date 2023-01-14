@@ -1,5 +1,4 @@
 import { Stack, Typography, Button } from '@mui/material';
-import dayjs, { Dayjs } from 'dayjs';
 import { useRouter } from 'next/router';
 import { Dispatch, SetStateAction } from 'react';
 import Calendar from './Calendar';
@@ -10,15 +9,11 @@ import Time from './Time';
 
 function BookingAppointmentContent({
 	step,
-	value,
-	setValue,
 	setStep,
 	name,
 	image,
 }: {
 	step: number;
-	value: dayjs.Dayjs | null;
-	setValue: (val: Dayjs) => void;
 	setStep: Dispatch<SetStateAction<number>>;
 	name: string;
 	image: string;
@@ -30,7 +25,10 @@ function BookingAppointmentContent({
 			return setStep((prev: number) => prev + 1);
 		}
 
-		return router.push('/');
+		return router.push({
+			pathname: '/book-details',
+			query: router.query,
+		});
 	};
 
 	return (
@@ -44,7 +42,7 @@ function BookingAppointmentContent({
 				totalSteps={3}
 				label={['Choose Date', 'Choose Time', 'Details']}
 			/>
-			{step === 0 ? <Calendar value={value} setValue={setValue} /> : null}
+			{step === 0 ? <Calendar /> : null}
 			{step === 1 ? <Time /> : null}
 			{step === 2 ? <EmailField /> : null}
 			<Button
