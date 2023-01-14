@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					/>
 					<meta
 						property="og:image"
-						content="https://rhb-discovery.vercel.app/landing_og.png"
+						content="https://rhb-discovery.vercel.app/landing_og.jpeg"
 					/>
 					<meta property="og:url" content="https://rhb-discovery.vercel.app" />
 					<meta property="og:type" content="website" />
