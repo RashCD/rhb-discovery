@@ -1,4 +1,13 @@
-import { Avatar, Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
+import {
+	Avatar,
+	Box,
+	Button,
+	CircularProgress,
+	Container,
+	Grid,
+	Stack,
+	Typography,
+} from '@mui/material';
 import Card from '../components/Card';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
@@ -9,13 +18,42 @@ import CardPreview from '../components/CardPreview';
 import { useRouter } from 'next/router';
 import { productHelper } from '../utils/productHelper';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const ResultOutput = () => {
+	const [loading, setLoading] = useState(true);
+
 	const router = useRouter();
+
+	useEffect(() => {
+		const timeoutId = setTimeout(() => {
+			setLoading(false);
+		}, 5000);
+
+		return () => {
+			clearTimeout(timeoutId);
+		};
+	}, []);
 
 	const handleBookASession = () => {
 		router.push('/book-session');
 	};
+
+	if (loading) {
+		return (
+			<Box
+				sx={{
+					display: 'flex',
+					width: '100vw',
+					height: '100vh',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+			>
+				<CircularProgress />
+			</Box>
+		);
+	}
 
 	return (
 		<>
