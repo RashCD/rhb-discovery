@@ -83,7 +83,8 @@ export const listQuestions = {
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
-			question: 'I increase my savings when I receive a salary increase. (duplicate)',
+			question:
+				'I have money spread across more than one type of investment (e.g., stocks, bonds, mutual funds, CDs)',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 	],
