@@ -16,6 +16,18 @@ declare module '@mui/material/styles' {
 	}
 }
 
+declare module '@mui/material/Button' {
+	interface ButtonPropsColorOverrides {
+		tertiary: true;
+	}
+}
+
+declare module '@mui/material/Icon' {
+	interface IconPropsColorOverrides {
+		tertiary: true;
+	}
+}
+
 let theme = createTheme({
 	palette: {
 		background: { default: '#f9f9f9', paper: '#fff' },
