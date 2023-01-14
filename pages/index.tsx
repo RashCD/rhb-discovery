@@ -72,6 +72,7 @@ export default function Home() {
 					<Box
 						sx={{
 							display: { xs: 'none', md: 'block' },
+							position: 'relative',
 							width: '100%',
 							height: '100%',
 						}}
@@ -80,6 +81,7 @@ export default function Home() {
 							alt="image of a women holding a phone"
 							src="/landing_page.png"
 							fill
+							priority
 							style={{
 								objectFit: 'contain',
 								transform: 'translateX(20%)',
