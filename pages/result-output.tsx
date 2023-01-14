@@ -1,13 +1,4 @@
-import {
-	Avatar,
-	Box,
-	Button,
-	CircularProgress,
-	Container,
-	Grid,
-	Stack,
-	Typography,
-} from '@mui/material';
+import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
 import Card from '../components/Card';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';

@@ -2,8 +2,7 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { Inter } from '@next/font/google';
 
 const style = {

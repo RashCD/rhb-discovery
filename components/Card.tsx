@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, SvgIconTypeMap, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import { Fragment, FunctionComponent } from 'react';
 
 type IconType = {

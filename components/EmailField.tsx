@@ -1,5 +1,5 @@
 import { Stack, TextField } from '@mui/material';
-import { StringParam, useQueryParam, useQueryParams, withDefault } from 'use-query-params';
+import { StringParam, useQueryParams, withDefault } from 'use-query-params';
 
 const EmailField = () => {
 	const [query, setQuery] = useQueryParams({

@@ -1,4 +1,4 @@
-import { Box, Container, Icon, Paper, Stack, Typography } from '@mui/material';
+import { Container, Icon, Paper, Stack, Typography } from '@mui/material';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PersonIcon from '@mui/icons-material/Person';
