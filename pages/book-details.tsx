@@ -3,8 +3,16 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PersonIcon from '@mui/icons-material/Person';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import { useRouter } from 'next/router';
+import dayjs from 'dayjs';
 
 const BookDetails = () => {
+	const router = useRouter();
+
+	const dateConverted = dayjs(router.query?.date as string).format('DD MMMM YYYY');
+
+	const timeConverted = dayjs(router.query?.time as string).format('hh:mm a');
+
 	return (
 		<Container sx={{ mt: 5 }}>
 			<Stack>
@@ -14,7 +22,7 @@ const BookDetails = () => {
 				<Stack direction={'row'} sx={{ my: 2 }}>
 					<Typography>We already have send booking details to</Typography>&nbsp;
 					<Typography sx={{ color: 'tertiary.main', fontWeight: '500' }}>
-						nazim@gmail.com
+						{router.query?.email ?? 'nazim@gmail.com'}
 					</Typography>
 				</Stack>
 				<Paper
@@ -28,7 +36,9 @@ const BookDetails = () => {
 								fontSize="small"
 								sx={{ color: 'tertiary.main' }}
 							/>
-							<Typography>20 January 2023</Typography>
+							<Typography>
+								{dateConverted} {timeConverted} (GMT+8)
+							</Typography>
 						</Stack>
 						<Stack direction={'row'} alignItems="center" gap={2}>
 							<Icon
@@ -48,7 +58,7 @@ const BookDetails = () => {
 								fontSize="small"
 								sx={{ color: 'tertiary.main' }}
 							/>
-							<Typography>Muhamad Afiq</Typography>
+							<Typography>{router.query?.instructor ?? 'Muhammad Afiq'}</Typography>
 						</Stack>
 						<Stack direction={'row'} alignItems="center" gap={2}>
 							<Icon
@@ -56,7 +66,9 @@ const BookDetails = () => {
 								fontSize="small"
 								sx={{ color: 'tertiary.main' }}
 							/>
-							<Typography>How can I get home loan with rhb</Typography>
+							<Typography>
+								{router.query?.description ?? 'How can I get home loan with rhb'}
+							</Typography>
 						</Stack>
 					</Stack>
 				</Paper>
