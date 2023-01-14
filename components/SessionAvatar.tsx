@@ -29,17 +29,17 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 	},
 }));
 
-const SessionAvatar = () => (
+const SessionAvatar = ({ name, image }: { name: string; image: string }) => (
 	<Stack direction={'row'} alignItems={'center'} gap={1}>
 		<StyledBadge
 			overlap="circular"
 			anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 			variant="dot"
 		>
-			<Avatar alt="avatar image" src="/afiq.png" sx={{ width: 50, height: 50 }} />
+			<Avatar alt="avatar image" src={image} sx={{ width: 50, height: 50 }} />
 		</StyledBadge>
 		<Typography variant="subtitle1" sx={{ fontWeight: '500' }}>
-			{'test'}
+			{name}
 		</Typography>
 	</Stack>
 );

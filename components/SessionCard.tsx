@@ -6,9 +6,11 @@ import { sessionHelper } from '../utils/sessionHelper';
 import { FieldType } from '../utils/sessionHelper';
 import Image from 'next/image';
 
-const SessionCardType = sessionHelper[0];
+type SessionCardType = {
+	handleOpen: ({ name, image }: { name?: string; image?: string }) => void;
+} & typeof sessionHelper[0];
 
-const SessionCard = ({ name, fields, image, language, location }: typeof SessionCardType) => {
+const SessionCard = ({ name, fields, image, language, location, handleOpen }: SessionCardType) => {
 	return (
 		<Grid item md={4} display="flex">
 			<Paper
@@ -95,7 +97,12 @@ const SessionCard = ({ name, fields, image, language, location }: typeof Session
 								/>
 							))}
 						</Stack>
-						<Button variant="contained" color="tertiary" sx={{ mx: 3, my: 2 }}>
+						<Button
+							variant="contained"
+							color="tertiary"
+							sx={{ mx: 3, my: 2 }}
+							onClick={() => handleOpen({ name, image })}
+						>
 							Book Appointment
 						</Button>
 					</Stack>

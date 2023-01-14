@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { ReactNode, useState } from 'react';
 import { Inter } from '@next/font/google';
 
@@ -22,14 +21,17 @@ const style = {
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function TransitionModal({ content }: { content: ReactNode }) {
-	const [open, setOpen] = useState(false);
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
-
+export default function TransitionModal({
+	content,
+	open,
+	handleClose,
+}: {
+	content: ReactNode;
+	open: boolean;
+	handleClose: () => void;
+}) {
 	return (
 		<div>
-			<Button onClick={handleOpen}>Open modal</Button>
 			<Modal
 				className={inter.className}
 				aria-labelledby="transition-modal-title"
