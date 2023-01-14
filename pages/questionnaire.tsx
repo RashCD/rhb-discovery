@@ -1,13 +1,8 @@
-import React from 'react';
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import Question from '../components/Question';
-import Stepper from '../components/Stepper';
 import { useQueryParam, NumberParam } from 'use-query-params';
 import useEffectOnce from '../hooks/useEffectOnce';
 import { useRouter } from 'next/router';
-import { db } from '../firebase';
-import { ref } from 'firebase/database';
-import { useListVals } from 'react-firebase-hooks/database';
 
 export type QuestionTypes = {
 	q: string;
