@@ -60,13 +60,13 @@ export default function App({ Component, pageProps }: AppProps) {
 						content="RHB Discovery make it easy for you to contact us for information regarding financial advices or services"
 					/>
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
-					<link rel="icon" href="/favicon.ico" />
+					<link rel="icon" href="/faviconrhb.png" />
 					<meta property="og:title" content="RHB Discovery" />
 					<meta
 						property="og:description"
 						content="RHB Discovery make it easy for you to contact us for information regarding financial advices or services"
 					/>
-					<meta property="og:image" content="/landing_page.png" />
+					<meta property="og:image" content="/landing_og.png" />
 				</Head>
 				<main className={inter.className}>
 					<Component {...pageProps} />
