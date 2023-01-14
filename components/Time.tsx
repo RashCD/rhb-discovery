@@ -1,12 +1,12 @@
-import * as React from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
+import { useState } from 'react';
 
 export default function Time() {
-	const [value, setValue] = React.useState<Dayjs | null>(dayjs('2023-01-01'));
+	const [value, setValue] = useState<Dayjs | null>(dayjs('2023-01-01'));
 
 	return (
 		<LocalizationProvider dateAdapter={AdapterDayjs}>
