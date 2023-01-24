@@ -1,13 +1,14 @@
-import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Icon, IconButton, Stack, Typography } from '@mui/material';
 import Card from '../components/Card';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import CardPreview from '../components/CardPreview';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import EmailIcon from '@mui/icons-material/Email';
 import { useRouter } from 'next/router';
-import { productHelper } from '../utils/productHelper';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { personalityTypes, typePersonalityTypes } from '../utils/personalityHelper';
@@ -27,12 +28,8 @@ const ResultOutput = () => {
 		};
 	}, []);
 
-	const handleBookASession = () => {
-		router.push('/book-session');
-	};
-
-	const handleVisitBranch = () => {
-		router.push('https://www.rhbgroup.com/qms/index.html');
+	const handleSeeMore = () => {
+		router.push('/product-fit');
 	};
 
 	if (loading) {
@@ -58,119 +55,99 @@ const ResultOutput = () => {
 		);
 	}
 
-	const targetPersonality = router.query.type as typePersonalityTypes;
+	const targetPersonality = (router.query.type as typePersonalityTypes) || 'novice';
 
 	const { title, sub, icon, description } = personalityTypes[targetPersonality];
 
 	return (
-		<>
-			<Container sx={{ display: 'flex', mb: 10 }}>
-				<Box
-					sx={{
-						display: { xs: 'none', md: 'flex' },
-						flex: 0.2,
-						justifyContent: 'center',
-						position: 'relative',
-						mt: 5,
-					}}
-				>
-					<Image
-						alt="cartoon"
-						src={icon}
-						priority
-						width={150}
-						height={200}
-						style={{
-							objectFit: 'contain',
-						}}
-					/>
-				</Box>
-				<Box sx={{ flex: 1, mt: 6 }}>
-					<Typography variant="subtitle1">Your Personal Finance type is:</Typography>
-					<Typography variant="h3" color="tertiary.main" sx={{ my: 3, fontWeight: 600 }}>
-						{title}
-					</Typography>
-					<Typography variant="subtitle1" sx={{ width: ['100%', '80%', '50%'] }}>
-						{sub}
-					</Typography>
-					<Grid container gap={2} mt={3}>
-						<Card
-							title={description[0].title}
-							subtitle={description[0].sub}
-							icon={LeaderboardIcon}
-							color="#ffefef"
-						/>
-						<Card
-							title={description[1].title}
-							subtitle={description[1].sub}
-							icon={HealthAndSafetyIcon}
-							color="#effffd"
-						/>
-						<Card
-							title={description[2].title}
-							subtitle={description[2].sub}
-							icon={AccountBalanceWalletIcon}
-							color="#e6f7ff"
-						/>
-						<Card
-							title={description[3].title}
-							subtitle={description[3].sub}
-							icon={CreditCardIcon}
-							color="#effffd"
-						/>
-						<Card
-							title={description[4].title}
-							subtitle={description[4].sub}
-							icon={ShoppingBagIcon}
-							color="#fff8ef"
-						/>
-					</Grid>
-					<Typography sx={{ fontWeight: 'bold', my: 3 }}>
-						Product that fit for you
-					</Typography>
-					<Grid container my={3}>
-						{productHelper.map((product) => (
-							<CardPreview
-								key={product.title}
-								title={product.title}
-								description={product.description}
-								image={product.image}
-								link={product?.link}
-							/>
-						))}
-					</Grid>
-				</Box>
-			</Container>
-			<Stack
-				direction={'row'}
-				spacing={2}
-				alignItems="center"
-				justifyContent="center"
-				position="fixed"
-				py={3}
-				bottom={0}
-				right={0}
-				left={0}
-				bgcolor="#fff"
+		<Container sx={{ display: 'flex', mb: 10 }}>
+			<Box
+				sx={{
+					display: { xs: 'none', md: 'flex' },
+					flex: 0.2,
+					justifyContent: 'center',
+					position: 'relative',
+					mt: 2,
+				}}
 			>
-				<Typography fontWeight={'bold'}>Book Consultant Session</Typography>
+				<Image
+					alt="cartoon"
+					src={icon}
+					priority
+					width={150}
+					height={200}
+					style={{
+						objectFit: 'contain',
+					}}
+				/>
+			</Box>
+			<Box sx={{ flex: 1, mt: 6 }}>
+				<Typography variant="subtitle1">Your Personal Finance type is:</Typography>
+				<Typography variant="h3" color="tertiary.main" sx={{ my: 3, fontWeight: 600 }}>
+					{title}
+				</Typography>
+				<Typography variant="subtitle1" sx={{ width: ['100%', '80%', '50%'] }}>
+					{sub}
+				</Typography>
+				<Grid container gap={2} mt={3}>
+					<Card
+						title={description[0].title}
+						subtitle={description[0].sub}
+						icon={LeaderboardIcon}
+						color="#ffefef"
+					/>
+					<Card
+						title={description[1].title}
+						subtitle={description[1].sub}
+						icon={HealthAndSafetyIcon}
+						color="#effffd"
+					/>
+					<Card
+						title={description[2].title}
+						subtitle={description[2].sub}
+						icon={AccountBalanceWalletIcon}
+						color="#e6f7ff"
+					/>
+					<Card
+						title={description[3].title}
+						subtitle={description[3].sub}
+						icon={CreditCardIcon}
+						color="#effffd"
+					/>
+					<Card
+						title={description[4].title}
+						subtitle={description[4].sub}
+						icon={ShoppingBagIcon}
+						color="#fff8ef"
+					/>
+				</Grid>
+				<Stack direction={'row'} sx={{ my: 5, alignItems: 'center' }} gap={2}>
+					<Typography sx={{ fontWeight: 'bold' }}>Share</Typography>
+					<IconButton disableRipple sx={{ bgcolor: '#364886' }}>
+						<Icon component={FacebookIcon} fontSize="medium" sx={{ color: 'white' }} />
+					</IconButton>
+					<IconButton disableRipple sx={{ bgcolor: '#3D8DED' }}>
+						<Icon component={TwitterIcon} fontSize="medium" sx={{ color: 'white' }} />
+					</IconButton>
+					<IconButton disableRipple sx={{ bgcolor: '#3B965F' }}>
+						<Icon component={EmailIcon} fontSize="medium" sx={{ color: 'white' }} />
+					</IconButton>
+				</Stack>
 				<Button
 					variant="contained"
-					sx={{ bgcolor: 'tertiary.main' }}
-					onClick={handleBookASession}
+					onClick={handleSeeMore}
+					sx={{
+						bgcolor: 'tertiary.main',
+						width: '100%',
+						height: 40,
+						maxWidth: '20%',
+						borderRadius: 3,
+					}}
 				>
-					Book a Session
+					See More
 				</Button>
-				<Typography fontWeight={'bold'}>or</Typography>
-				<Button
-					variant="outlined"
-					sx={{ color: 'tertiary.main', borderColor: 'tertiary.main' }}
-					onClick={handleVisitBranch}
-				>
-					Visit our Branch
-				</Button>
-			</Stack>
-		</>
+			</Box>
+		</Container>
 	);
 };
 
