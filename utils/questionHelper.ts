@@ -6,20 +6,14 @@ export const listQuestions = {
 		},
 		{
 			question: 'Which region of Malaysia are you',
-			possibleAnswer: [
-				'North (Kedah, P.Pinang or Perlis)',
-				'East Cost',
-				'Central',
-				'Borneo',
-				'South',
-			],
+			possibleAnswer: ['Northern', 'East Cost', 'Central', 'South', 'Borneo'],
 		},
 		{
 			question: 'Age Range',
-			possibleAnswer: ['21-30', '31-40'],
+			possibleAnswer: ['21-30', '31-40', '41-50', '51-60', '61 & above'],
 		},
 		{
-			question: 'Household income',
+			question: 'Income range',
 			possibleAnswer: [
 				'Below RM3,000',
 				'3,000-4,999',
@@ -33,29 +27,15 @@ export const listQuestions = {
 			possibleAnswer: [
 				'I do not know at all',
 				'I only know a little',
-				"I'm quite knowledgeble",
-				"I'm very knowledgeble",
+				"I'm quite knowledgeable",
+				"I'm very knowledgeable",
 			],
 		},
 	],
 	'Financial Management': [
 		{
 			question:
-				'I have a bank checking account (or credit union share draft account) with which to pay bills',
-			possibleAnswer: ['Yes', 'No'],
-		},
-		{
-			question:
-				'I have enough money each month to pay my rent/mortgage and other household expenses?',
-			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
-		},
-		{
-			question: 'I have enough money to pay for an emergency, such as a large car repair.',
-			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
-		},
-		{
-			question:
-				'I have written financial goals with a date and dollar cost (e.g., $10,000 for a car in four years).',
+				'I have written financial goals with a date and Ringgit cost (e.g., RM 30000 for down payment for house).',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
@@ -63,7 +43,7 @@ export const listQuestions = {
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
-			question: 'I keep organized financial records and can find important documents easily.',
+			question: 'I have control on my money.',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 	],
@@ -75,16 +55,12 @@ export const listQuestions = {
 		},
 		{
 			question:
-				'I have at least three months’ expenses set aside in a readily accessible account (e.g., money market mutual fund).',
-			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
-		},
-		{
-			question: 'I increase my savings when I receive a salary increase.',
+				'I have a personal investment account for retirement (other than an employee pension)',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
 			question:
-				'I have money spread across more than one type of investment (e.g., stocks, bonds, mutual funds, CDs)',
+				'I have money spread across more than one type of investment (e.g., stocks, bonds, mutual funds, CDs).',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 	],
@@ -101,12 +77,17 @@ export const listQuestions = {
 	],
 	Credit: [
 		{
+			question: 'I know my credit score',
+			possibleAnswer: ['Yes', 'No'],
+		},
+		{
 			question:
-				'Less than 20 percent of my monthly take-home pay goes to my credit cards, student loans, and car payments.',
+				'I have enough money each month to pay my rent/mortgage and other household expenses.',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
-			question: 'I pay credit card bills in full to avoid interest charges.',
+			question:
+				'Less than 20 percent of my monthly income goes to my credit (e.g., credit cards, student loans, car payments and etc).',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 	],
