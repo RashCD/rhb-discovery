@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { productHelper } from '../utils/productHelper';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { personalityTypes, typePersonalityTypes } from '../utils/personalityHelper';
 
 const ResultOutput = () => {
 	const [loading, setLoading] = useState(true);
@@ -49,12 +50,17 @@ const ResultOutput = () => {
 				<Image
 					alt="loading indicator"
 					src="/loading_indicator.gif"
+					priority
 					width={100}
 					height={100}
 				/>
 			</Box>
 		);
 	}
+
+	const targetPersonality = router.query.type as typePersonalityTypes;
+
+	const { title, sub, icon, description } = personalityTypes[targetPersonality];
 
 	return (
 		<>
@@ -65,14 +71,15 @@ const ResultOutput = () => {
 						flex: 0.2,
 						justifyContent: 'center',
 						position: 'relative',
+						mt: 5,
 					}}
 				>
 					<Image
 						alt="cartoon"
-						src="/cartoon.png"
+						src={icon}
+						priority
 						width={150}
 						height={200}
-						priority
 						style={{
 							objectFit: 'contain',
 						}}
@@ -81,40 +88,39 @@ const ResultOutput = () => {
 				<Box sx={{ flex: 1, mt: 6 }}>
 					<Typography variant="subtitle1">Your Personal Finance type is:</Typography>
 					<Typography variant="h3" color="tertiary.main" sx={{ my: 3, fontWeight: 600 }}>
-						Competent
+						{title}
 					</Typography>
 					<Typography variant="subtitle1" sx={{ width: ['100%', '80%', '50%'] }}>
-						You are doing a fair job of managing your finances and have taken some steps
-						in the right direction.
+						{sub}
 					</Typography>
 					<Grid container gap={2} mt={3}>
 						<Card
-							title="Financial Management"
-							subtitle="Start having financial goals by yearly. Plan your monthly budget according to keep track your expenses."
+							title={description[0].title}
+							subtitle={description[0].sub}
 							icon={LeaderboardIcon}
 							color="#ffefef"
 						/>
 						<Card
-							title="Insurance and Estate Planning"
-							subtitle="Income protection safeguards your salary by replacing it should you become unable to work get one before its too late."
+							title={description[1].title}
+							subtitle={description[1].sub}
 							icon={HealthAndSafetyIcon}
 							color="#effffd"
 						/>
 						<Card
-							title="Saving/Investing"
-							subtitle="Increase your saving or reduce unnecessary expenses. Keep your Emergency fund 6months of your salary."
+							title={description[2].title}
+							subtitle={description[2].sub}
 							icon={AccountBalanceWalletIcon}
 							color="#e6f7ff"
 						/>
 						<Card
-							title="Credit"
-							subtitle="Avoid penalty or late payment. The less you pay in fees, the more money have to grow"
+							title={description[3].title}
+							subtitle={description[3].sub}
 							icon={CreditCardIcon}
 							color="#effffd"
 						/>
 						<Card
-							title="Shopping"
-							subtitle="Avoid impulse buying make sure you have list Of thing that you want to buy. Focus on the need not on the want"
+							title={description[4].title}
+							subtitle={description[4].sub}
 							icon={ShoppingBagIcon}
 							color="#fff8ef"
 						/>
