@@ -5,6 +5,7 @@ import {
 	FormControl,
 	FormControlLabel,
 	Grid,
+	Paper,
 	Radio,
 	RadioGroup,
 	Typography,
@@ -144,7 +145,19 @@ const Question = () => {
 					</Fragment>
 				))}
 
-				<Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+				<Paper
+					elevation={4}
+					sx={{
+						display: 'flex',
+						justifyContent: 'space-around',
+						position: 'fixed',
+						p: 2,
+						bottom: 0,
+						left: 0,
+						right: 0,
+						bgcolor: 'background.default',
+					}}
+				>
 					<Button
 						variant="outlined"
 						onClick={handlePrevious}
@@ -163,7 +176,7 @@ const Question = () => {
 					>
 						{!isNil(step) && step + 1 === questionTitle.length ? 'Finish' : 'Next'}
 					</Button>
-				</Box>
+				</Paper>
 			</Box>
 		</>
 	);
