@@ -1,24 +1,27 @@
-import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Chip, Grid, Paper, Stack, Typography } from '@mui/material';
+import { green, blueGrey, brown, teal } from '@mui/material/colors';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { FieldType } from '../utils/sessionHelper';
 
 const CardPreview = ({
 	title,
 	description,
 	image,
 	link,
+	fieldName,
 }: {
 	title: string;
 	description: string;
 	image: string;
 	link?: string;
+	fieldName?: string;
 }) => {
 	const handleCardClick = () => {
 		window.open(link, '_ blank');
 	};
 
 	return (
-		<Grid item md={5} display="flex">
+		<Grid item md={4} display="flex">
 			<Button variant="text" onClick={handleCardClick}>
 				<Paper
 					elevation={2}
@@ -54,17 +57,42 @@ const CardPreview = ({
 						</Box>
 						<Box
 							sx={{
+								display: 'flex',
+								flexDirection: 'column',
 								height: '100%',
-								px: 3,
-								py: 2,
+								px: 2,
+								py: 1,
 							}}
 						>
-							<Typography variant="h6" sx={{ mb: 2, fontWeight: '500' }}>
+							<Typography
+								variant="subtitle1"
+								sx={{ mb: 1, fontWeight: '500', textAlign: 'left' }}
+							>
 								{title}
 							</Typography>
-							<Typography variant="subtitle2" sx={{ color: 'grey' }}>
+							<Typography sx={{ fontSize: 11, color: 'grey', textAlign: 'left' }}>
 								{description}
 							</Typography>
+							<Chip
+								variant="outlined"
+								label={fieldName}
+								sx={{
+									width: 'fit-content',
+									mt: 'auto',
+									mb: 2,
+									borderWidth: 2,
+									borderColor:
+										fieldName === FieldType.Saving
+											? 'primary.main'
+											: fieldName === FieldType.Insurance
+											? green[500]
+											: fieldName === FieldType.Loan
+											? blueGrey[500]
+											: fieldName === FieldType.Credit
+											? teal[300]
+											: brown[500],
+								}}
+							/>
 						</Box>
 					</Stack>
 				</Paper>

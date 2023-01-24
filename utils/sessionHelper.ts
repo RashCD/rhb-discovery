@@ -9,6 +9,7 @@ export enum LanguageType {
 export enum FieldType {
 	Saving = 'Saving',
 	Loan = 'Loan',
+	Credit = 'Credit Card',
 	Insurance = 'Insurance',
 	Investment = 'Investment',
 }
