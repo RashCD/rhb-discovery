@@ -12,7 +12,7 @@ type SessionCardType = {
 
 const SessionCard = ({ name, fields, image, language, location, handleOpen }: SessionCardType) => {
 	return (
-		<Grid item md={4} display="flex">
+		<Grid item xs={12} sm={6} md={4} display="flex">
 			<Paper
 				elevation={2}
 				sx={{
@@ -21,7 +21,7 @@ const SessionCard = ({ name, fields, image, language, location, handleOpen }: Se
 					width: '100%',
 					borderRadius: 3,
 					overflow: 'hidden',
-					m: 3,
+					m: [1, 3],
 				}}
 			>
 				<Stack width={'100%'} height={'100%'}>
