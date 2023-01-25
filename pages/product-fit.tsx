@@ -16,7 +16,7 @@ const ProductFit = () => {
 
 	return (
 		<Container sx={{ my: 7 }}>
-			<Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+			<Typography component={'h2'} variant="h4" sx={{ fontWeight: 'bold' }}>
 				Product that fit for you
 			</Typography>
 			<Grid container my={3}>
