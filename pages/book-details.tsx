@@ -2,9 +2,11 @@ import { Container, Icon, Paper, Stack, Typography } from '@mui/material';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PersonIcon from '@mui/icons-material/Person';
+import InfoIcon from '@mui/icons-material/Info';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import { useRouter } from 'next/router';
 import dayjs from 'dayjs';
+import { capitalize } from '../utils/functionHelper';
 
 const BookDetails = () => {
 	const router = useRouter();
@@ -59,6 +61,16 @@ const BookDetails = () => {
 								sx={{ color: 'tertiary.main' }}
 							/>
 							<Typography>{router.query?.instructor ?? 'Muhammad Afiq'}</Typography>
+						</Stack>
+						<Stack direction={'row'} alignItems="center" gap={2}>
+							<Icon
+								component={InfoIcon}
+								fontSize="small"
+								sx={{ color: 'tertiary.main' }}
+							/>
+							<Typography>
+								{capitalize((router.query?.topic as string) ?? 'loan')}
+							</Typography>
 						</Stack>
 						<Stack direction={'row'} alignItems="center" gap={2}>
 							<Icon
