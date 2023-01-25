@@ -2,7 +2,7 @@ export const listQuestions = {
 	Demographic: [
 		{
 			question: 'What gender are you',
-			possibleAnswer: ['Male', 'Female', 'Others'],
+			possibleAnswer: ['Male', 'Female'],
 		},
 		{
 			question: 'Which region of Malaysia are you',
