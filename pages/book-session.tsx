@@ -6,6 +6,7 @@ import { useState } from 'react';
 import BookingAppointmentContent from '../components/BookingAppointmentContent';
 import { StringParam, useQueryParam, withDefault } from 'use-query-params';
 import FilterSelect from '../components/FilterSelect';
+import { capitalize } from '../utils/functionHelper';
 
 const BookSession = () => {
 	const [step, setStep] = useState(0);
@@ -37,18 +38,6 @@ const BookSession = () => {
 	const handleLanguageOnChange = (event: SelectChangeEvent<string>) =>
 		setLanguage(event.target.value);
 
-	// capitalize first letter of string eg: 'saving' => 'Saving' & 'kuala lumpur' => 'Kuala Lumpur'
-	const capitalize = (str: string) => {
-		const splitStr = str.toLowerCase().split(' ');
-		if (splitStr.length > 1) {
-			return splitStr
-				.map((word) => word.charAt(0).toUpperCase() + word.substring(1))
-				.join(' ');
-		} else {
-			return str.charAt(0).toUpperCase() + str.substring(1);
-		}
-	};
-
 	// filter sessionHelper by fields, location, and language
 	const filteredSessions = sessionHelper
 		.filter((session) => {
@@ -75,7 +64,7 @@ const BookSession = () => {
 
 	return (
 		<Container sx={{ my: 3, height: '100%' }}>
-			<Typography variant="h4" fontWeight={'500'} sx={{ mb: 3 }}>
+			<Typography component={'h2'} variant="h4" fontWeight={'500'} sx={{ mb: 3 }}>
 				Talk to our officers
 			</Typography>
 			<Stack
