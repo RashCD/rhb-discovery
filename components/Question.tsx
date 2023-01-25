@@ -47,9 +47,67 @@ const Question = () => {
 		});
 	};
 
+	const getScore = (): number => {
+		// if values === 'always' => 5 points
+		// if values === 'usually' => 4 points
+		// if values === 'sometimes' => 3 points
+		// if values === 'seldom' => 2 points
+		// if values === 'never' => 1 points
+
+		// if values === 'yes' => 5 points
+		// if values === 'no' => 1 points
+
+		const score = Object.values(selectedRadio).reduce<number>((acc, curr) => {
+			let totalScore = 0;
+			const values = Object.values(curr);
+
+			values.forEach((value) => {
+				if (value === 'always' || value === 'yes') {
+					totalScore += 5;
+				} else if (value === 'usually') {
+					totalScore += 4;
+				} else if (value === 'sometimes') {
+					totalScore += 3;
+				} else if (value === 'seldom') {
+					totalScore += 2;
+				} else if (value === 'never' || value === 'no') {
+					totalScore += 1;
+				} else {
+					totalScore += 0;
+				}
+			});
+
+			return acc + totalScore;
+		}, 0);
+
+		return score;
+	};
+
+	const getBracketType = (score: number) => {
+		// convert to a function
+		const scorePercentage = (score / 65) * 100;
+
+		if (scorePercentage >= 0 && scorePercentage <= 20) {
+			return 'novice';
+		} else if (scorePercentage >= 21 && scorePercentage <= 40) {
+			return 'advance';
+		} else if (scorePercentage >= 41 && scorePercentage <= 60) {
+			return 'competent';
+		} else if (scorePercentage >= 61 && scorePercentage <= 80) {
+			return 'proficient';
+		} else if (scorePercentage >= 81 && scorePercentage <= 100) {
+			return 'expert';
+		} else {
+			return 'novice';
+		}
+	};
+
 	const handleNext = () => {
 		if (!isNil(step) && step + 1 === questionTitle.length) {
-			return router.push('/result-output');
+			const score = getScore();
+			const bracketType = getBracketType(score);
+
+			return router.push({ pathname: '/result-output', query: { type: bracketType } });
 		}
 
 		return setStep((step ?? 0) + 1);
