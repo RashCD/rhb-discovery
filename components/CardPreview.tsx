@@ -21,7 +21,7 @@ const CardPreview = ({
 	};
 
 	return (
-		<Grid item md={4} display="flex">
+		<Grid item xs={12} sm={6} md={4} display="flex">
 			<Button variant="text" onClick={handleCardClick}>
 				<Paper
 					elevation={2}
@@ -31,7 +31,7 @@ const CardPreview = ({
 						width: '100%',
 						borderRadius: 3,
 						overflow: 'hidden',
-						m: 3,
+						m: [0, 3],
 						aspectRatio: '1/1.1',
 						minHeight: 370,
 					}}
