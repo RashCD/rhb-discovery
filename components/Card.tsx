@@ -19,7 +19,7 @@ const Card = ({ title, subtitle, icon, color }: CardType) => {
 		<Grid item md={5} display="flex">
 			<Paper
 				elevation={0}
-				sx={{ display: 'flex', p: 3, alignItems: 'center', gap: 3, bgcolor: color }}
+				sx={{ display: 'flex', p: 2, alignItems: 'center', gap: 3, bgcolor: color }}
 			>
 				<Icon sx={{ width: 50, height: 50, color: 'grey' }} />
 				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
