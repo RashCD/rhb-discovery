@@ -7,7 +7,7 @@ export default function Home() {
 	const router = useRouter();
 
 	const handleGetStarted = () => {
-		router.push('/questionnaire');
+		router.push('/fitness-type');
 	};
 
 	return (
