@@ -1,4 +1,5 @@
-import { Typography, Grid, Button, Stack, Container, Paper } from '@mui/material';
+import { Typography, Grid, Button, Stack, Container, Paper, Box } from '@mui/material';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import CardPreview from '../components/CardPreview';
 import { productHelper } from '../utils/productHelper';
@@ -15,7 +16,7 @@ const ProductFit = () => {
 	};
 
 	return (
-		<Container sx={{ my: 7 }}>
+		<Container sx={{ my: [17, 13] }}>
 			<Typography component={'h2'} variant="h4" sx={{ fontWeight: 'bold' }}>
 				Product that fit for you
 			</Typography>
@@ -35,35 +36,54 @@ const ProductFit = () => {
 				elevation={4}
 				sx={{
 					position: 'fixed',
-					bottom: 0,
+					top: 0,
 					left: 0,
 					right: 0,
 					bgcolor: 'background.default',
 				}}
 			>
-				<Stack
-					direction={'row'}
-					spacing={2}
-					alignItems="center"
-					justifyContent="center"
-					py={2}
-				>
-					<Typography fontWeight={'bold'}>Book Consultant Session</Typography>
-					<Button
-						variant="contained"
-						sx={{ bgcolor: 'tertiary.main' }}
-						onClick={handleBookASession}
+				<Stack direction={'row'} justifyContent="space-between" py={2}>
+					<Box sx={{ flex: 0.5, display: ['none', 'none', 'flex'] }}>
+						<Image
+							alt="rhb discovery logo"
+							src={'/discovery.png'}
+							width={300}
+							height={30}
+							style={{
+								objectFit: 'contain',
+							}}
+						/>
+					</Box>
+					<Stack
+						direction={'row'}
+						alignItems={'center'}
+						justifyContent="center"
+						spacing={2}
+						sx={{ flex: 1, mx: 2 }}
 					>
-						Book a Session
-					</Button>
-					<Typography fontWeight={'bold'}>or</Typography>
-					<Button
-						variant="outlined"
-						sx={{ color: 'tertiary.main', borderColor: 'tertiary.main' }}
-						onClick={handleVisitBranch}
-					>
-						Visit our Branch
-					</Button>
+						<Typography
+							fontWeight={'bold'}
+							sx={{ display: ['none', 'flex'], fontSize: [10, 12, '1rem'] }}
+						>
+							Book Consultant Session
+						</Typography>
+						<Button
+							variant="contained"
+							sx={{ bgcolor: 'tertiary.main' }}
+							onClick={handleBookASession}
+						>
+							Book a Session
+						</Button>
+						<Typography fontWeight={'bold'}>or</Typography>
+						<Button
+							variant="outlined"
+							sx={{ color: 'tertiary.main', borderColor: 'tertiary.main' }}
+							onClick={handleVisitBranch}
+						>
+							Visit our Branch
+						</Button>
+					</Stack>
+					<Stack sx={{ display: ['none', 'none', 'flex'], flex: 0.5 }} />
 				</Stack>
 			</Paper>
 		</Container>
