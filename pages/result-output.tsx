@@ -94,11 +94,12 @@ const ResultOutput = () => {
 						onClick={handleSeeMore}
 						sx={{
 							bgcolor: 'tertiary.main',
-							width: '100%',
+							width: ['60%', '40%', '30%'],
 							height: 40,
-							maxWidth: ['60%', '40%', '30%'],
+							maxWidth: [250, 300],
+							justifyContent: 'space-between',
 							borderRadius: 3,
-							fontSize: [10, 12, 12, 15],
+							fontSize: [12, 12, 14, 15],
 						}}
 					>
 						Improve Your Fitness Score
