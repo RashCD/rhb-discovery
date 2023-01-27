@@ -26,15 +26,21 @@ export default function Home() {
 						<Image
 							alt="rhb discovery logo"
 							src={'/discovery.png'}
-							width={200}
-							height={40}
+							width={400}
+							height={100}
 							style={{
 								objectFit: 'contain',
 							}}
 						/>
 					</Box>
-					<Typography variant="h2" sx={{ fontWeight: '500' }}>
-						Let us know you and serve you best
+					<Typography variant="h3" sx={{ fontWeight: 'bold', mb: 3 }}>
+						Discover your personal financial fitness
+					</Typography>
+					<Typography variant="subtitle1">
+						Unleash the full potential of your finances by discovering your financial
+						fitness, personalized financial product recommendations and professional
+						consultation and advice for optimizing your financial portfolio towards your
+						financial goals.
 					</Typography>
 					<Button
 						variant="contained"
@@ -43,7 +49,7 @@ export default function Home() {
 						onClick={handleGetStarted}
 						sx={{
 							mt: 5,
-							bgcolor: 'tertiary.main',
+							bgcolor: 'tertiary.light',
 							width: 200,
 							justifyContent: 'space-around',
 						}}
