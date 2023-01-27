@@ -54,6 +54,12 @@ const Question = () => {
 		// if values === 'seldom' => 2 points
 		// if values === 'never' => 1 points
 
+		// if values === '0' => 5 points
+		// if values === '1' => 4 points
+		// if values === '2' => 3 points
+		// if values === '3' => 2 points
+		// if values === 'more than 4' => 1 points
+
 		// if values === 'yes' => 5 points
 		// if values === 'no' => 1 points
 
@@ -62,15 +68,15 @@ const Question = () => {
 			const values = Object.values(curr);
 
 			values.forEach((value) => {
-				if (value === 'always' || value === 'yes') {
+				if (value === 'always' || value === 'yes' || value === '0') {
 					totalScore += 5;
-				} else if (value === 'usually') {
+				} else if (value === 'usually' || value === '1') {
 					totalScore += 4;
-				} else if (value === 'sometimes') {
+				} else if (value === 'sometimes' || value === '2') {
 					totalScore += 3;
-				} else if (value === 'seldom') {
+				} else if (value === 'seldom' || value === '3') {
 					totalScore += 2;
-				} else if (value === 'never' || value === 'no') {
+				} else if (value === 'never' || value === 'no' || value === 'more than 4') {
 					totalScore += 1;
 				} else {
 					totalScore += 0;
