@@ -34,9 +34,8 @@ export const listQuestions = {
 	],
 	'Financial Management': [
 		{
-			question:
-				'I have written financial goals with a date and Ringgit cost (e.g., RM 30000 for down payment for house).',
-			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
+			question: 'I have house and car loan',
+			possibleAnswer: ['0', '1', '2', '3', 'More Than 4'],
 		},
 		{
 			question: 'I have a written plan (budget) for spending and/or saving my money.',
@@ -55,8 +54,8 @@ export const listQuestions = {
 		},
 		{
 			question:
-				'I have a personal investment account for retirement (other than an employee pension)',
-			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
+				'I have an investment account ASB (Amanah Saham Bumiputera) or PRS (Private Retirement Scheme).',
+			possibleAnswer: ['Yes', 'No'],
 		},
 		{
 			question:
@@ -67,7 +66,7 @@ export const listQuestions = {
 	'Insurance & Estate Planning': [
 		{
 			question:
-				'I have insurance to cover “big” unexpected expenses, such as a hospital bill or disability',
+				'I have insurance to cover “big” unexpected expenses, such as a hospital bill, car breakdown or disability',
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
@@ -86,9 +85,8 @@ export const listQuestions = {
 			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
 		},
 		{
-			question:
-				'Less than 20 percent of my monthly income goes to my credit (e.g., credit cards, student loans, car payments and etc).',
-			possibleAnswer: ['Always', 'Usually', 'Sometimes', 'Seldom', 'Never'],
+			question: 'I have subscribe to credit card services',
+			possibleAnswer: ['0', '1', '2', '3', 'More Than 4'],
 		},
 	],
 	Shopping: [
