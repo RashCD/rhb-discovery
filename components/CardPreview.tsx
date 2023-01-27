@@ -22,7 +22,7 @@ const CardPreview = ({
 
 	return (
 		<Grid item xs={12} sm={6} md={4} display="flex">
-			<Button variant="text" onClick={handleCardClick}>
+			<Button variant="text" onClick={handleCardClick} sx={{ width: '100%' }}>
 				<Paper
 					elevation={2}
 					sx={{
