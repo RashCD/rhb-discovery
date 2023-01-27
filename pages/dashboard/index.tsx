@@ -6,10 +6,10 @@ const FontPage = () => {
 		<Stack direction={'row'}>
 			<DashboardLayout />
 			<Stack sx={{ ml: '270px', width: '100%' }}>
-				<Typography component={'h2'} variant="h4" fontWeight={'bold'} sx={{ my: 3 }}>
+				<Typography component={'h2'} variant="h4" fontWeight={'bold'} sx={{ my: 4.5 }}>
 					Discovery Dashboard
 				</Typography>
-				<Typography variant="h6" fontWeight={'500'} sx={{ ml: 1, mb: 1 }}>
+				<Typography variant="h6" fontWeight={'500'} sx={{ ml: 1, mb: 1, mt: 2 }}>
 					Demographic
 				</Typography>
 				<Box

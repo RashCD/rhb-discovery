@@ -6,7 +6,7 @@ const DashboardList = () => {
 		<Stack direction={'row'}>
 			<DashboardLayout />
 			<Stack sx={{ ml: '270px', width: '100%' }}>
-				<Typography component={'h2'} variant="h4" fontWeight={'bold'} sx={{ my: 3 }}>
+				<Typography component={'h2'} variant="h4" fontWeight={'bold'} sx={{ my: 4.5 }}>
 					RHB Discovery Leads
 				</Typography>
 				<Box
