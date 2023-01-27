@@ -15,19 +15,18 @@ export default function Home() {
 			<Box sx={{ display: 'flex', ml: [2, 2, 5, 10] }}>
 				<Box
 					sx={{
-						flex: [1, 1, 0.5],
+						flex: [1, 1, 1, 0.5],
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'center',
 						height: '100vh',
 					}}
 				>
-					<Box sx={{ mb: 3 }}>
+					<Box sx={{ position: 'relative', mb: 3, maxWidth: 400, height: 100 }}>
 						<Image
 							alt="rhb discovery logo"
 							src={'/discovery.png'}
-							width={400}
-							height={100}
+							fill
 							style={{
 								objectFit: 'contain',
 							}}
