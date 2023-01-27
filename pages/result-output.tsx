@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { personalityTypes, typePersonalityTypes } from '../utils/personalityHelper';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const ResultOutput = () => {
 	const [loading, setLoading] = useState(true);
@@ -83,9 +84,26 @@ const ResultOutput = () => {
 			</Box>
 			<Box sx={{ flex: 1, mt: 6 }}>
 				<Typography variant="subtitle1">Your Personal Finance type is:</Typography>
-				<Typography variant="h3" color="tertiary.main" sx={{ my: 3, fontWeight: 600 }}>
-					{title}
-				</Typography>
+				<Stack direction={'row'} justifyContent="space-between" alignItems={'center'}>
+					<Typography variant="h3" color="tertiary.main" sx={{ my: 3, fontWeight: 600 }}>
+						{title}
+					</Typography>
+					<Button
+						variant="contained"
+						endIcon={<ArrowForwardIosIcon />}
+						onClick={handleSeeMore}
+						sx={{
+							bgcolor: 'tertiary.main',
+							width: '100%',
+							height: 40,
+							maxWidth: ['60%', '40%', '30%'],
+							borderRadius: 3,
+							fontSize: [10, 12, 12, 15],
+						}}
+					>
+						Improve Your Fitness Score
+					</Button>
+				</Stack>
 				<Typography variant="subtitle1" sx={{ width: ['100%', '80%', '50%'] }}>
 					{sub}
 				</Typography>
@@ -133,19 +151,6 @@ const ResultOutput = () => {
 						<Icon component={EmailIcon} fontSize="medium" sx={{ color: 'white' }} />
 					</IconButton>
 				</Stack>
-				<Button
-					variant="contained"
-					onClick={handleSeeMore}
-					sx={{
-						bgcolor: 'tertiary.main',
-						width: '100%',
-						height: 40,
-						maxWidth: '20%',
-						borderRadius: 3,
-					}}
-				>
-					See More
-				</Button>
 			</Box>
 		</Container>
 	);
